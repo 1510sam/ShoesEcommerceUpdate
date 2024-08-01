@@ -66,6 +66,7 @@
 						<c:if test="${not empty userObj }">
 							<div class="dropdown-menu">
 								<a href="login.jsp" class="dropdown-item">${userObj.lastName }</a>
+								<a class="dropdown-item" href="logout">Logout</a>
 							</div>
 						</c:if>
 
@@ -106,7 +107,7 @@
 				<div class="user">
 					<a href="wishlist.html" class="btn wishlist"> <i
 						class="fa fa-heart"></i> <span>(0)</span>
-					</a> <a href="cart.html" class="btn cart"> <i
+					</a> <a href="cart.jsp" class="btn cart"> <i
 						class="fa fa-shopping-cart"></i> <span>(0)</span>
 					</a>
 				</div>

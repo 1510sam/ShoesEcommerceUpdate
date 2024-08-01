@@ -1,3 +1,4 @@
+<%@page import="com.entity.User"%>
 <%@page import="com.entity.Brand"%>
 <%@page import="com.DAO.BrandDAOImpl"%>
 <%@page import="com.entity.Shoes"%>
@@ -21,6 +22,9 @@
 </head>
 
 <body>
+	<%
+	User us = (User)session.getAttribute("userObj");
+	%>
 	<%@include file="components/navbar.jsp"%>
 
 	<!-- Breadcrumb Start -->
@@ -85,7 +89,8 @@
 									<div class="price">
 										<h4>Price:</h4>
 										<p>
-											$<%=s.getShoesPrice()%>
+											<%=s.getShoesPrice()%>
+											$
 										</p>
 									</div>
 									<div class="quantity">
@@ -110,11 +115,21 @@
 											<button type="button" class="btn">38.5</button>
 										</div>
 									</div>
+									<%
+										if(us == null) {
+									%>
 									<div class="action">
-										<a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Add
+										<a class="btn" href="login.jsp"><i class="fa fa-shopping-cart"></i>Add
+											to Cart</a> <a class="btn" href="login.jsp"><i
+											class="fa fa-shopping-bag"></i>Buy Now</a>
+									</div>
+									<%} else { %>
+									<div class="action">
+										<a class="btn" href="cart?sid=<%=s.getShoesId()%>&&uid=<%=us.getId()%>"><i class="fa fa-shopping-cart"></i>Add
 											to Cart</a> <a class="btn" href="#"><i
 											class="fa fa-shopping-bag"></i>Buy Now</a>
 									</div>
+									<%} %>
 								</div>
 							</div>
 						</div>
@@ -234,10 +249,22 @@
 									</div>
 									<div class="product-price">
 										<h3>
-											<span>$</span><%=s2.getShoesPrice()%>
+											<%=s2.getShoesPrice()%>$
 										</h3>
-										<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-											Now</a>
+										<%
+										if (us == null) {
+										%>
+										<a class="btn" href="login.jsp"><i
+											class="fa fa-shopping-cart"></i>Buy Now</a>
+										<%
+										} else {
+										%>
+										<a class="btn"
+											href="cart?sid=<%=s.getShoesId()%>&&uid=<%=us.getId()%>"><i
+											class="fa fa-shopping-cart"></i>Buy Now</a>
+										<%
+										}
+										%>
 									</div>
 								</div>
 							</div>
@@ -281,7 +308,7 @@
 							%>
 							<div class="product-item">
 								<div class="product-title">
-									<a href="#"><%=s3.getShoesName() %></a>
+									<a href="#"><%=s3.getShoesName()%></a>
 									<div class="ratting">
 										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -289,7 +316,8 @@
 									</div>
 								</div>
 								<div class="product-image">
-									<a href="product-detail.html"> <img width="900px" height="800px" src="shoes/<%=s3.getShoesPhoto() %>"
+									<a href="product-detail.html"> <img width="900px"
+										height="800px" src="shoes/<%=s3.getShoesPhoto()%>"
 										alt="Product Image">
 									</a>
 									<div class="product-action">
@@ -300,13 +328,27 @@
 								</div>
 								<div class="product-price">
 									<h3>
-										<span>$</span><%=s3.getShoesPrice() %>
+										<span>$</span><%=s3.getShoesPrice()%>
 									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-										Now</a>
+									<%
+										if (us == null) {
+										%>
+										<a class="btn" href="login.jsp"><i
+											class="fa fa-shopping-cart"></i>Buy Now</a>
+										<%
+										} else {
+										%>
+										<a class="btn"
+											href="cart?sid=<%=s.getShoesId()%>&&uid=<%=us.getId()%>"><i
+											class="fa fa-shopping-cart"></i>Buy Now</a>
+										<%
+										}
+										%>
 								</div>
 							</div>
-							<%} %>
+							<%
+							}
+							%>
 						</div>
 					</div>
 
@@ -314,16 +356,18 @@
 						<h2 class="title">Our Brands</h2>
 						<ul>
 							<%
-								BrandDAOImpl dao4 = new BrandDAOImpl(DBConn.getConnection());
-								List<Brand> list4 = dao4.getAllBrand();
-								for (Brand b : list4) {
+							BrandDAOImpl dao4 = new BrandDAOImpl(DBConn.getConnection());
+							List<Brand> list4 = dao4.getAllBrand();
+							for (Brand b : list4) {
 							%>
-							<li><a href="#"><%= b.getBrandName() %></a></li>
-							<%} %>
+							<li><a href="#"><%=b.getBrandName()%></a></li>
+							<%
+							}
+							%>
 						</ul>
 					</div>
 
-			
+
 				</div>
 				<!-- Side Bar End -->
 			</div>

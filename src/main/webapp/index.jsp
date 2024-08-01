@@ -38,10 +38,6 @@
 	<%@include file="components/featured.jsp"%>
 	<!-- Feature End-->
 
-	<!-- Category Start-->
-	<%@include file="components/category.jsp"%>
-	<!-- Category End-->
-
 	<!-- Call to Action Start -->
 	<%@include file="components/contact.jsp"%>
 	<!-- Call to Action End -->

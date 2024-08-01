@@ -7,5 +7,6 @@ import com.entity.Brand;
 public interface BrandDAO {
 	public boolean addBrand(Brand b);
 	public List<Brand> getAllBrand();
-	//public boolean deleteBrand(int id);
+	public Brand getBrandById(int id);
+	public boolean editBrand(Brand b);
 }

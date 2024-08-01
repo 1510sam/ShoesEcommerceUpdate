@@ -1,5 +1,3 @@
-<%@page import="com.entity.Brand"%>
-<%@page import="com.DAO.BrandDAOImpl"%>
 <%@page import="com.entity.Shoes"%>
 <%@page import="java.util.List"%>
 <%@page import="com.DAO.ShoesDAOImpl"%>
@@ -12,7 +10,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>E Store - All Shoes</title>
+<title>E Store - Recent Shoes</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="eCommerce HTML Template Free Download" name="keywords">
 <meta content="eCommerce HTML Template Free Download" name="description">
@@ -91,9 +89,9 @@
 						</div>
 
 						<%
-						ShoesDAOImpl dao = new ShoesDAOImpl(DBConn.getConnection());
-						List<Shoes> list = dao.getAllShoes();
-						for (Shoes s : list) {
+							ShoesDAOImpl dao = new ShoesDAOImpl(DBConn.getConnection());
+							List<Shoes> list = dao.getAllNewShoes();
+							for (Shoes s : list) {
 						%>
 
 						<div class="col-md-4">
@@ -107,8 +105,7 @@
 									</div>
 								</div>
 								<div class="product-image">
-									<a href="product-detail.html"> <img width="215px"
-										height="215px" src="shoes/<%=s.getShoesPhoto()%>"
+									<a href="product-detail.html"> <img width="215px" height="215px" src="shoes/<%=s.getShoesPhoto()%>"
 										alt="Product Image">
 									</a>
 									<div class="product-action">
@@ -126,10 +123,8 @@
 								</div>
 							</div>
 						</div>
-
-						<%
-						}
-						%>
+						
+						<%} %>
 
 					</div>
 
@@ -156,20 +151,16 @@
 						<h2 class="title">Category</h2>
 						<nav class="navbar bg-light">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a class="nav-link"
-									href="all_featured_shoes.jsp"><img
-										style="margin-right: 14px" width="14px" height="16.8px"
-										src="https://i.pinimg.com/736x/dc/53/50/dc5350243970437d9fff2c8db3a9975b.jpg">Featured
-										Shoes</a></li>
-								<li class="nav-item"><a class="nav-link" href="#"><img
-										style="margin-right: 10px" width="14px" height="16.8px"
-										src="https://t3.ftcdn.net/jpg/04/59/83/98/360_F_459839852_CcutU8xMpaEawDM7s9xsnYyxEI1rBtSs.jpg">
-										New Shoes</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="all_recent_shoes.jsp"><img style="margin-right: 10px"
-										width="14px" height="16.8px"
-										src="https://png.pngtree.com/template/20191203/ourmid/pngtree-shoes-design-logo-vector-image_337938.jpg">Recent
-										Shoes</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"><i
+										class="fa fa-female"></i>Fashion & Beauty</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"><i
+										class="fa fa-child"></i>Kids & Babies Clothes</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"><i
+										class="fa fa-tshirt"></i>Men & Women Clothes</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"><i
+										class="fa fa-mobile-alt"></i>Gadgets & Accessories</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"><i
+										class="fa fa-microchip"></i>Electronics & Accessories</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -263,16 +254,22 @@
 					<div class="sidebar-widget brands">
 						<h2 class="title">Our Brands</h2>
 						<ul>
-							<%
-							BrandDAOImpl dao4 = new BrandDAOImpl(DBConn.getConnection());
-							List<Brand> list4 = dao4.getAllBrand();
-							for (Brand b : list4) {
-							%>
-							<li><a href="#"><%=b.getBrandName()%></a></li>
-							<%
-							}
-							%>
+							<li><a href="#">Nulla </a><span>(45)</span></li>
+							<li><a href="#">Curabitur </a><span>(34)</span></li>
+							<li><a href="#">Nunc </a><span>(67)</span></li>
+							<li><a href="#">Ullamcorper</a><span>(74)</span></li>
+							<li><a href="#">Fusce </a><span>(89)</span></li>
+							<li><a href="#">Sagittis</a><span>(28)</span></li>
 						</ul>
+					</div>
+
+					<div class="sidebar-widget tag">
+						<h2 class="title">Tags Cloud</h2>
+						<a href="#">Lorem ipsum</a> <a href="#">Vivamus</a> <a href="#">Phasellus</a>
+						<a href="#">pulvinar</a> <a href="#">Curabitur</a> <a href="#">Fusce</a>
+						<a href="#">Sem quis</a> <a href="#">Mollis metus</a> <a href="#">Sit
+							amet</a> <a href="#">Vel posuere</a> <a href="#">orci luctus</a> <a
+							href="#">Nam lorem</a>
 					</div>
 				</div>
 				<!-- Side Bar End -->

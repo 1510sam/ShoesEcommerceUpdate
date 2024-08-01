@@ -80,4 +80,46 @@ public class BrandDAOImpl implements BrandDAO{
 //		return f;
 //	}
 
+	@Override
+	public Brand getBrandById(int id) {
+		Brand b = null;
+		try {
+			String sql = "select *from brands where brandsId=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				b = new Brand();
+				b.setBrandId(rs.getInt(1));
+				b.setBrandName(rs.getString(2));
+				b.setBrandPhoto(rs.getString(3));
+				b.setEmail(rs.getString(4));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return b;
+	}
+
+	@Override
+	public boolean editBrand(Brand b) {
+		boolean f = false;
+		try {
+			String sql = "update brands set brandsName = ? where brandsId = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, b.getBrandName());
+			ps.setInt(2, b.getBrandId());
+			int i = ps.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
+	}
+
 }

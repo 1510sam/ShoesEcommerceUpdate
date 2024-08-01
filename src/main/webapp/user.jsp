@@ -18,6 +18,9 @@
 </head>
 
 <body>
+	<c:if test="${empty userObj}">
+		<c:redirect url="login.jsp"></c:redirect>
+	</c:if>
 	<%@include file="components/navbar.jsp"%>
 
 	<!-- Breadcrumb Start -->
@@ -68,7 +71,7 @@
 							<p>
 								Welcome back
 								<c:if test="${not empty userObj }">
-									${ userObj.firstName }
+									${ userObj.lastName }
 								</c:if>
 							</p>
 

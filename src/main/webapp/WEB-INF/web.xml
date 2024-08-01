@@ -64,6 +64,18 @@
   	<description></description>
   	<servlet-class>com.user.servlet.CartServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BrandEdit</servlet-name>
+  	<display-name>BrandEdit</display-name>
+  	<description></description>
+  	<servlet-class>com.admin.servlet.BrandEdit</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RemoveShoesServlet</servlet-name>
+  	<display-name>RemoveShoesServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.RemoveShoesServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/register</url-pattern>
@@ -103,5 +115,13 @@
   <servlet-mapping>
   	<servlet-name>CartServlet</servlet-name>
   	<url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BrandEdit</servlet-name>
+  	<url-pattern>/edit-brand</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RemoveShoesServlet</servlet-name>
+  	<url-pattern>/remove_shoes</url-pattern>
   </servlet-mapping>
 </web-app>

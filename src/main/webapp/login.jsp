@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>E Store - Register Page</title>
+<title>E Store - Login Page</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="eCommerce HTML Template Free Download" name="keywords">
 <meta content="eCommerce HTML Template Free Download" name="description">

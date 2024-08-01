@@ -6,7 +6,7 @@
 <%@page import="com.DAO.ShoesDAOImpl"%>
 <div class="featured-product product">
 	<%
-	User us = (User)session.getAttribute("userObj");
+	User us = (User) session.getAttribute("userObj");
 	%>
 	<div class="container-fluid">
 		<div class="section-header">
@@ -19,7 +19,7 @@
 			for (Shoes s : list) {
 			%>
 
-			<div class="col-lg-3">
+			<div class="col-lg-12">
 				<div class="product-item">
 					<div class="product-title">
 						<a href="#"><%=s.getShoesName()%></a>
@@ -35,24 +35,29 @@
 						</a>
 						<div class="product-action">
 							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="product_detail.jsp?sid=<%= s.getShoesId() %>"><i class="fa fa-search"></i></a>
+								class="fa fa-heart"></i></a> <a
+								href="product_detail.jsp?sid=<%=s.getShoesId()%>"><i
+								class="fa fa-search"></i></a>
 						</div>
 					</div>
 					<div class="product-price">
 						<h3>
-							<span>$</span><%=s.getShoesPrice()%>
+							<%=s.getShoesPrice()%><span>$</span>
 						</h3>
 						<%
-							if(us == null) {
+						if (us == null) {
 						%>
 						<a class="btn" href="login.jsp"><i class="fa fa-shopping-cart"></i>Buy
 							Now</a>
 						<%
-							} else {
+						} else {
 						%>
-						<a class="btn" href="cart?cid=<%= s.getShoesId() %>&&uid=<%= us.getId() %>"><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
-						<%} %>
+						<a class="btn"
+							href="cart?sid=<%=s.getShoesId()%>&&uid=<%=us.getId()%>"><i
+							class="fa fa-shopping-cart"></i>Buy Now</a>
+						<%
+						}
+						%>
 					</div>
 				</div>
 			</div>
@@ -97,7 +102,7 @@
 			for (Shoes s : list2) {
 			%>
 
-			<div class="col-lg-3">
+			<div class="col-lg-12">
 				<div class="product-item">
 					<div class="product-title">
 						<a href="#"><%=s.getShoesName()%></a>
@@ -108,20 +113,34 @@
 						</div>
 					</div>
 					<div class="product-image">
-						<a href="product-detail.html"> <img width="300" height="300" src="shoes/<%=s.getShoesPhoto()%>"
-							alt="Product Image">
+						<a href="product-detail.html"> <img width="300" height="300"
+							src="shoes/<%=s.getShoesPhoto()%>" alt="Product Image">
 						</a>
 						<div class="product-action">
 							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="product_detail.jsp?sid=<%= s.getShoesId() %>"><i class="fa fa-search"></i></a>
+								class="fa fa-heart"></i></a> <a
+								href="product_detail.jsp?sid=<%=s.getShoesId()%>"><i
+								class="fa fa-search"></i></a>
 						</div>
 					</div>
 					<div class="product-price">
 						<h3>
-							<span>$</span><%=s.getShoesPrice()%>
+							<%=s.getShoesPrice()%><span>$</span>
 						</h3>
-						<a class="btn" href="cart?cid=<%= s.getShoesId() %>&&uid=<%= us.getId() %>"><i class="fa fa-shopping-cart"></i>Buy
+						<%
+						if (us == null) {
+						%>
+						<a class="btn" href="login.jsp"><i class="fa fa-shopping-cart"></i>Buy
 							Now</a>
+						<%
+						} else {
+						%>
+						<a class="btn"
+							href="cart?sid=<%=s.getShoesId()%>&&uid=<%=us.getId()%>"><i
+							class="fa fa-shopping-cart"></i>Buy Now</a>
+						<%
+						}
+						%>
 					</div>
 				</div>
 			</div>
@@ -158,20 +177,34 @@
 						</div>
 					</div>
 					<div class="product-image">
-						<a href="product-detail.html"> <img width="300" height="300" src="shoes/<%=s.getShoesPhoto()%>"
-							alt="Product Image">
+						<a href="product-detail.html"> <img width="300" height="300"
+							src="shoes/<%=s.getShoesPhoto()%>" alt="Product Image">
 						</a>
 						<div class="product-action">
 							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="product_detail.jsp?sid=<%= s.getShoesId() %>"><i class="fa fa-search"></i></a>
+								class="fa fa-heart"></i></a> <a
+								href="product_detail.jsp?sid=<%=s.getShoesId()%>"><i
+								class="fa fa-search"></i></a>
 						</div>
 					</div>
 					<div class="product-price">
 						<h3>
-							<span>$</span><%=s.getShoesPrice()%>
+							<%=s.getShoesPrice()%><span>$</span>
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
+						<%
+						if (us == null) {
+						%>
+						<a class="btn" href="login.jsp"><i class="fa fa-shopping-cart"></i>Buy
 							Now</a>
+						<%
+						} else {
+						%>
+						<a class="btn"
+							href="cart?sid=<%=s.getShoesId()%>&&uid=<%=us.getId()%>"><i
+							class="fa fa-shopping-cart"></i>Buy Now</a>
+						<%
+						}
+						%>
 					</div>
 				</div>
 			</div>

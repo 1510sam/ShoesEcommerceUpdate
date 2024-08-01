@@ -9,23 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.CartDAOImpl;
-import com.DAO.ShoesDAOImpl;
 import com.DB.DBConn;
-import com.entity.Cart;
-import com.entity.Shoes;
 
 /**
- * Servlet implementation class CartServlet
+ * Servlet implementation class RemoveShoesServlet
  */
-@WebServlet(name = "CartServlet", urlPatterns = { "/cart" })
-
-public class CartServlet extends HttpServlet {
+@WebServlet(name = "RemoveShoesServlet", urlPatterns = { "/remove_shoes" })
+public class RemoveShoesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CartServlet() {
+    public RemoveShoesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,30 +30,16 @@ public class CartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int sid = Integer.parseInt(request.getParameter("sid"));
-		int uid = Integer.parseInt(request.getParameter("uid"));
-		ShoesDAOImpl dao = new ShoesDAOImpl(DBConn.getConnection());
-		Shoes s = dao.getShoesById(sid);
-		
-		Cart c = new Cart();
-		c.setShoesId(sid);
-		c.setUserId(uid);
-		c.setShoesName(s.getShoesName());
-		c.setShoesBrand(s.getShoesBrand());
-		c.setPrice(Double.parseDouble(s.getShoesPrice()));
-		c.setTotalPrice(Double.parseDouble(s.getShoesPrice()));
-	
-		CartDAOImpl dao2 = new CartDAOImpl(DBConn.getConnection());
-		boolean f = dao2.addCart(c);
+		int cid = Integer.parseInt(request.getParameter("cid"));
+		CartDAOImpl dao = new CartDAOImpl(DBConn.getConnection());
+		boolean f = dao.deleteCart(cid);
 		HttpSession session = request.getSession();
 		if(f) {
-			session.setAttribute("addCart", "Shoes added to cart");
+			session.setAttribute("succMsg", "Shoes removed to cart");
 			response.sendRedirect("cart.jsp");
-			System.out.println("Add cart success");
 		} else {
-			session.setAttribute("failed", "Shoes failed added to cart");
+			session.setAttribute("failedMsg", "There is an error, try again!");
 			response.sendRedirect("cart.jsp");
-			System.out.println("Add cart failed");
 		}
 	}
 

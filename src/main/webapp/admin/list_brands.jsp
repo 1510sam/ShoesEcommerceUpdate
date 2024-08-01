@@ -59,7 +59,7 @@
 									<td><%=b.getBrandName()%></td>
 									<td><img src="../brand/<%=b.getBrandPhoto()%>"
 										style="width: 100px; height: 50px;"></td>
-									<td><a href="edit_brand.jsp?id=<%=b.getBrandId()%>"
+									<td><a href="editBrand.jsp?id=<%=b.getBrandId()%>"
 										class="btn btn-sm btn-primary">Edit</a> <a href="../delete-brands?id=<%=b.getBrandId()%>"
 										class="btn btn-sm btn-danger">Delete</a></td>
 								</tr>

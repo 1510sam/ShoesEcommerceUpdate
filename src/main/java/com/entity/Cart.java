@@ -6,8 +6,8 @@ public class Cart {
 	private int userId;
 	private String shoesName;
 	private String shoesBrand;
-	private double price;
-	private double totalPrice;
+	private Double price;
+	private Double totalPrice;
 	public int getCartId() {
 		return cartId;
 	}
@@ -41,13 +41,13 @@ public class Cart {
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public double getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(double totalPrice) {
+	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	

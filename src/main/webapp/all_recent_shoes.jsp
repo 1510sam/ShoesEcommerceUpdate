@@ -115,8 +115,8 @@
 									</div>
 								</div>
 								<div class="product-price">
-									<h3>
-										<span>$</span><%=s.getShoesPrice()%>
+									<h3 style="font-size: 16px">
+										<%=s.getShoesPrice()%><span>VND</span>
 									</h3>
 									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
 										Now</a>
